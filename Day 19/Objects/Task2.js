@@ -4,7 +4,7 @@ function readingStatus(books) {
         Object.defineProperty(i, "daysAgo", {
             get() {
                 today = new Date()
-                dateOfRead = new Date(i.dateOfRead.getFullYear(), i.dateOfRead.getMonth() - 1, i.dateOfRead.getDate())
+                dateOfRead = new Date(i.dateOfRead.getFullYear(), i.dateOfRead.getMonth(), i.dateOfRead.getDate())
                 var difference = (today.getTime() - dateOfRead.getTime())/ (1000 * 3600 * 24);
                 var difference = Math.ceil(difference)
                 return `${difference} days ago`
@@ -17,9 +17,6 @@ function readingStatus(books) {
         else console.log(`${i.author} haven't read ${i.title} book yet`)
     }
 }
-
-
-
 
 var Books = [ 
     {
