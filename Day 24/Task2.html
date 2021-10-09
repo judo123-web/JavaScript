@@ -9,11 +9,10 @@
 </head>
 
 <body>
-    <img id="img1" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt=""
-        style="width: 500px; height: 300px;">
+    <img id="img1" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="">
     <br><br>
     <button style="width: 100px; height: 30px; display: inline" onclick="nextimage()">Next image</button>
-    <p id="p1" style="display: inline; margin-left: 40px;">sadasd</p>
+    <p id="p1" style="display: inline; margin-left: 40px;"></p>
 
 
     <script>
@@ -32,12 +31,15 @@
         ]
         const img1 = document.getElementById("img1")
         const p1 = document.getElementById("p1")
-        p1.innerHTML = `length of images is ${arr.length}`
 
         function nextimage(e) {
             var randomnumber = Math.floor(Math.random() * (arr.length - 1 - 0 + 1) + 0)
             img1.src = arr[randomnumber]
         }
+
+        img1.addEventListener('load', () => {
+            p1.innerHTML = `image width is ${img1.clientWidth} and  height is ${img1.clientHeight}`
+        })
 
     </script>
 </body>
